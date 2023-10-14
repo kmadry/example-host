@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useState } from 'react';
 import './App.css';
+import _ from 'lodash';
 const Header = lazy(() => import('ExampleRemote/Header'));
 const Footer = lazy(() => import('ExampleRemote/Footer'));
 const Clicker = lazy(() => import('ExampleRemote/Clicker'));
@@ -12,6 +13,9 @@ function App() {
       <Suspense fallback={<div>Ładowanie Headera...</div>}>
         <Header />
       </Suspense>
+      <p>
+        Lodash v - {_.VERSION}
+      </p>
       <p>
         Host App - {hostState}
       </p>
