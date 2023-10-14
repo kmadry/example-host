@@ -35,7 +35,8 @@ module.exports = {
         new ModuleFederationPlugin({
             name: "ExampleHost",
             remotes: { 
-                "ExampleRemote": "ExampleRemote@http://localhost:3001/remoteEntry.js",            
+                "ExampleRemote": "ExampleRemote@http://localhost:3001/remoteEntry.js", 
+                "ExampleRemoteSite": "ExampleRemoteSite@http://localhost:3002/remoteEntry.js",            
             },
             shared: {
                 ...dependencies,
