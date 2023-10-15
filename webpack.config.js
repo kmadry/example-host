@@ -54,6 +54,7 @@ module.exports = {
             remotes: {
                 "ExampleRemote": "ExampleRemote@http://localhost:3001/remoteEntry.js",
                 "ExampleRemoteSite": "ExampleRemoteSite@http://localhost:3002/remoteEntry.js",
+                "ExampleRemoteProduct": "ExampleRemoteProduct@http://localhost:3003/remoteEntry.js",
             },
             shared: {
                 ...dependencies,

@@ -4,13 +4,14 @@ import { createBrowserRouter, RouterProvider, Link, Outlet } from 'react-router-
 import style from './App.module.css';
 import './MuiClassNameSetup';
 import localRoutes from './routes';
-import remoteRoutes from  'ExampleRemoteSite/routes';
+import siteRoutes from  'ExampleRemoteSite/routes';
+import productRoutes from  'ExampleRemoteProduct/routes';
 
 const Header = lazy(() => import('ExampleRemote/Header'));
 const Footer = lazy(() => import('ExampleRemote/Footer'));
 const Clicker = lazy(() => import('ExampleRemote/Clicker'));
 
-const routes = [...localRoutes, ...remoteRoutes];
+const routes = [...siteRoutes, ...productRoutes, ...localRoutes];
 
 const getRoutes = (routes) => [
   {
@@ -38,6 +39,7 @@ const Layout = ({routes}) => (
 
 function App() {
   const [hostState, setHostState] = useState('initial');
+  console.log(productRoutes, 'productRoutes');
   return (
     <div className={style.App}>
       <Suspense fallback={<div>Ładowanie Headera...</div>}>
