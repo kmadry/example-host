@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useState } from 'react';
-import './App.css';
+import style from './App.module.css';
 import _ from 'lodash';
 const Header = lazy(() => import('ExampleRemote/Header'));
 const Footer = lazy(() => import('ExampleRemote/Footer'));
@@ -9,11 +9,11 @@ const Content = lazy(() => import('ExampleRemoteSite/Content'));
 function App() {
   const [hostState, setHostState] = useState('initial');
   return (
-    <div className="App">
+    <div className={style.App}>
       <Suspense fallback={<div>Ładowanie Headera...</div>}>
         <Header />
       </Suspense>
-      <p>
+      <p className={style.class1}>
         Lodash v - {_.VERSION}
       </p>
       <p>

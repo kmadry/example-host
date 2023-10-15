@@ -15,17 +15,30 @@ module.exports = {
                 exclude: /node_modules/,
                 use: [
                     {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"],
-                    },
+                        loader: "babel-loader",
+                        options: {
+                            presets: ["@babel/preset-env", "@babel/preset-react"],
+                        },
                     },
                 ],
             },
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
+                use: [
+                    {
+                        loader: 'style-loader',
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[local]--example-host',
+                            },
+                        },
+                    },
+                ],
             },
+
         ],
     },
     plugins: [
@@ -34,9 +47,9 @@ module.exports = {
         }),
         new ModuleFederationPlugin({
             name: "ExampleHost",
-            remotes: { 
-                "ExampleRemote": "ExampleRemote@http://localhost:3001/remoteEntry.js", 
-                "ExampleRemoteSite": "ExampleRemoteSite@http://localhost:3002/remoteEntry.js",            
+            remotes: {
+                "ExampleRemote": "ExampleRemote@http://localhost:3001/remoteEntry.js",
+                "ExampleRemoteSite": "ExampleRemoteSite@http://localhost:3002/remoteEntry.js",
             },
             shared: {
                 ...dependencies,
