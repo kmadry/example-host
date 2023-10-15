@@ -55,6 +55,7 @@ module.exports = {
                 "ExampleRemote": "ExampleRemote@http://localhost:3001/remoteEntry.js",
                 "ExampleRemoteSite": "ExampleRemoteSite@http://localhost:3002/remoteEntry.js",
                 "ExampleRemoteProduct": "ExampleRemoteProduct@http://localhost:3003/remoteEntry.js",
+                "ExampleRemoteAuth0": "ExampleRemoteAuth0@http://localhost:3005/remoteEntry.js",
             },
             exposes: {
                 "./routes": "./src/hostRoutes",
@@ -76,6 +77,10 @@ module.exports = {
                 lodash: {
                     singleton: true,
                     requiredVersion: dependencies["lodash"],
+                },
+                "@auth0/auth0-react": {
+                  singleton: true,
+                  requiredVersion: dependencies["@auth0/auth0-react"],
                 },
             },
         }),

@@ -6,6 +6,7 @@ import style from './Layout.module.css';
 const Header = lazy(() => import('ExampleRemote/Header'));
 const Footer = lazy(() => import('ExampleRemote/Footer'));
 const Clicker = lazy(() => import('ExampleRemote/Clicker'));
+const Profile = lazy(() => import('ExampleRemoteAuth0/Profile'));
 
 const RenderRoutes = ({ routes, prev = "" }) => <ul className={style.list}>
   {routes.map(route => (
@@ -22,6 +23,9 @@ const Layout = ({ routes }) => {
     <>
       <Suspense fallback={<div>Ładowanie Headera...</div>}>
         <Header />
+      </Suspense>
+      <Suspense fallback={<div>Ładowanie Auth0...</div>}>
+        <Profile />
       </Suspense>
       <p>
         Host App - {hostState} - Lodash v - {_.VERSION}
